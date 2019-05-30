@@ -1,0 +1,33 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables (Import first, so bulma doesn't overwrite variables..)
+@import 'variables';
+
+$primary: #7b1fa2  !default;
+$secondary: #22313a !default;
+$dark: #27353d !default;
+
+// Bulma (using cdn makes the variables unoverridable..)
+@import '../../node_modules/bulma/bulma.sass';
+
+html, body {
+  background-color: $secondary;
+  color: $white-bis;
+}
+
+.maintenance-container {
+  background-color: $white-bis !important;
+  color: $secondary !important;
+}
+
+.discord-widget {
+  width: 100%;
+  height: 400px;
+}
+
+.youtube-video {
+  width: 100%;
+  height: 400px;
+}
+
