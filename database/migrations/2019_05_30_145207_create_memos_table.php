@@ -21,6 +21,9 @@ class CreateMemosTable extends Migration
             $table->tinyInteger('opened');
             $table->integer('created');
             $table->timestamps();
+
+            $table->foreign('sender_id')->references('id')->on('players');
+            $table->foreign('receiver_id')->references('id')->on('players');
         });
     }
 
