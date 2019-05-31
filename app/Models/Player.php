@@ -46,11 +46,20 @@ class Player extends Model
     {
         return $this->hasMany(PlayerItem::class);
     }
+
     /**
      * @return HasMany
      */
     public function equipment(): HasMany
     {
-        $this->hasMany(PlayerEquipment::class);
+        return $this->hasMany(PlayerEquipment::class);
+    }
+
+    /**
+     * @return string
+     */
+    public function getRouteKeyName(): string
+    {
+        return 'name';
     }
 }

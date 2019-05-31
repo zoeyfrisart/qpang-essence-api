@@ -2,6 +2,7 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\ValidateApiKey;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -60,7 +61,7 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
-        'api_key'=> \App\Http\Middleware\CheckApiKey::class,
+        'key' => \App\Http\Middleware\ValidateApiKey::class,
     ];
 
     /**
