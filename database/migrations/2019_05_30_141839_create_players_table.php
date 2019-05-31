@@ -17,6 +17,8 @@ class CreatePlayersTable extends Migration
             $table->bigIncrements('id');
             /** A user is something different than a player.. */
             $table->unsignedBigInteger('user_id');
+
+            $table->string('name');
             $table->tinyInteger('rank');
             $table->tinyInteger('prestige');
             $table->tinyInteger('level');
