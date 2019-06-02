@@ -46,6 +46,8 @@ class CreatePlayerEquipmentTable extends Migration
             $table->foreign('shoes')->references('id')->on('player_items');
             $table->foreign('back')->references('id')->on('player_items');
             $table->foreign('side')->references('id')->on('player_items');
+
+            $table->timestamps();
         });
     }
 

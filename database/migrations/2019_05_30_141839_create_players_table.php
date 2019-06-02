@@ -19,15 +19,15 @@ class CreatePlayersTable extends Migration
             $table->unsignedBigInteger('user_id');
 
             $table->string('name');
-            $table->tinyInteger('rank');
-            $table->tinyInteger('prestige');
-            $table->tinyInteger('level');
-            $table->integer('don');
-            $table->integer('cash');
+            $table->tinyInteger('rank')->default(1);
+            $table->tinyInteger('prestige')->default(0);
+            $table->tinyInteger('level')->default(1);
+            $table->integer('don')->default(0);
+            $table->integer('cash')->default(0);
             /** The amount of *bronze* coins from the PvE game-mode. */
-            $table->integer('coins');
-            $table->integer('experience');
-            $table->integer('playtime');
+            $table->integer('coins')->default(0);
+            $table->integer('experience')->default(0);
+            $table->integer('playtime')->default(0);
 
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users');
