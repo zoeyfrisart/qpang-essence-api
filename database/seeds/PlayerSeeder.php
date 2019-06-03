@@ -18,16 +18,20 @@ class PlayerSeeder extends Seeder
             'name' => 'Admin',
         ]);
 
-        $player = factory(Player::class)->create([
-            'user_id' => $user->getKey(),
-            'name'    => 'Admin',
-            'rank'    => 3,
+        $player = Player::query()->create([
+            'user_id'           => $user->getKey(),
+            'name'              => 'Admin',
+            'rank'              => 3,
+            'default_character' => 333,
+            'don'               => 750000,
+            'cash'              => 100000,
+            'coins'             => 25000,
         ]);
 
         $characterIds = [333, 343, 578, 579, 850, 851];
 
-        foreach($characterIds as $characterId) {
-            factory(PlayerEquipment::class)->create(['player_id' => $player->getKey(), 'character_id' => $characterId]);
+        foreach ($characterIds as $characterId) {
+            PlayerEquipment::query()->create(['player_id' => $player->getKey(), 'character_id' => $characterId]);
         }
     }
 }

@@ -16,23 +16,23 @@ class CreateItemsTable extends Migration
         Schema::create('items', function (Blueprint $table) {
             $table->bigIncrements('id');
             /** This is the *shop sequence id*, items without a seq_id can not be sold */
-            $table->integer('seq_id');
+            $table->unsignedInteger('seq_id');
             /** The specific item id, in-game 8) */
-            $table->integer('item_id');
+            $table->unsignedInteger('item_id');
 
             $table->string('name');
 
-            $table->tinyInteger('type');
-            $table->tinyInteger('aid');
-            $table->tinyInteger('pay_type');
-            $table->integer('price');
-            $table->tinyInteger('use_up');
-            $table->integer('period');
-            $table->tinyInteger('level');
-            $table->tinyInteger('status');
+            $table->unsignedInteger('type');
+            $table->unsignedInteger('aid');
+            $table->unsignedInteger('pay_type');
+            $table->unsignedInteger('price');
+            $table->unsignedInteger('use_up');
+            $table->unsignedInteger('period');
+            $table->unsignedInteger('level');
+            $table->unsignedInteger('status');
 
-            $table->integer('sold_count');
-            $table->integer('stock');
+            $table->unsignedInteger('sold_count');
+            $table->unsignedInteger('stock');
 
             $table->timestamps();
         });
