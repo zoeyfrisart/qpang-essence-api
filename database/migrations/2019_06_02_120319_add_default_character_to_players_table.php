@@ -14,7 +14,7 @@ class AddDefaultCharacterToPlayersTable extends Migration
     public function up()
     {
         Schema::table('players', function (Blueprint $table) {
-            $table->integer('default_character')->after('name');
+            $table->integer('default_character')->default(333)->after('name');
         });
     }
 
