@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateGameModesTable extends Migration
+class CreateMapsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateGameModesTable extends Migration
      */
     public function up()
     {
-        Schema::create('game_modes', function (Blueprint $table) {
+        Schema::create('maps', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedInteger('mode_id');
+            $table->unsignedInteger('map_id');
             $table->string('name');
             $table->timestamps();
         });
@@ -28,6 +28,6 @@ class CreateGameModesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('game_modes');
+        Schema::dropIfExists('maps');
     }
 }

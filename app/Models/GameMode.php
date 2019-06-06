@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class GameMode extends Model
 {
@@ -19,4 +20,12 @@ class GameMode extends Model
     protected $fillable = [
         'mode_id', 'name',
     ];
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function spawns(): HasMany
+    {
+        return $this->hasMany(MapSpawn::class);
+    }
 }

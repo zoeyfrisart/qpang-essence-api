@@ -16,5 +16,6 @@ class DatabaseSeeder extends Seeder
         $this->call(GameModeSeeder::class);
         $this->call(ShopSeeder::class);
         $this->call(ChannelSeeder::class);
+        $this->call(MapSeeder::class);
     }
 }
