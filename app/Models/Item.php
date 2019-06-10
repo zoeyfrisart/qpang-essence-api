@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Item extends Model
 {
@@ -14,4 +15,11 @@ class Item extends Model
         'price', 'use_up', 'period', 'level', 'status', 'sold_count', 'stock'
     ];
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function stats(): HasOne
+    {
+        return $this->hasOne(Weapon::class, 'item_id', 'item_id');
+    }
 }
