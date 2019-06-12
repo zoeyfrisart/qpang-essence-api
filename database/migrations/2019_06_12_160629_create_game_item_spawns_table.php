@@ -18,6 +18,9 @@ class CreateGameItemSpawnsTable extends Migration
             $table->unsignedBigInteger('position_id');
             $table->unsignedBigInteger('map_id');
             $table->timestamps();
+
+            $table->foreign('position_id')->references('id')->on('positions');
+            $table->foreign('map_id')->references('id')->on('maps');
         });
     }
 
