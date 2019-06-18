@@ -3,16 +3,19 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Laravel\Passport\HasApiTokens;
 
 class User extends Model
 {
-    /**
-     * @var array
-     */
+
+    use HasApiTokens,
+
+        /**
+         * @var array
+         */
     protected $fillable = [
-        'name', 'email', 'verified_at', 'password'
+        'name', 'email', 'verified_at', 'password',
     ];
 
     /**

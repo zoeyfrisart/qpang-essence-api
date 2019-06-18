@@ -36,7 +36,7 @@ class AddPositionToMapSpawnsTable extends Migration
             $table->float('y')->after('game_mode_id');
             $table->float('z')->after('game_mode_id');
 
-            $table->dropForeign('position_id');
+            $table->dropForeign(['position_id']);
 
             $table->dropColumn('position_id');
         });
