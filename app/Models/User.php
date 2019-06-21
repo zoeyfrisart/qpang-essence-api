@@ -2,18 +2,17 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Laravel\Passport\HasApiTokens;
 
-class User extends Model
+class User extends Authenticatable
 {
+    use HasApiTokens;
 
-    use HasApiTokens,
-
-        /**
-         * @var array
-         */
+    /**
+     * @var array
+     */
     protected $fillable = [
         'name', 'email', 'verified_at', 'password',
     ];
@@ -24,5 +23,14 @@ class User extends Model
     public function players(): HasOne
     {
         return $this->hasOne(Player::class);
+    }
+
+    /**
+     * @param string $username
+     * @return \Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Eloquent\Model|object|null
+     */
+    public function findForPassport(string $username)
+    {
+        return static::query()->where('name', $username)->orWhere('email', $username)->first();
     }
 }

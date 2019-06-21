@@ -29,7 +29,7 @@ $router->namespace('Api')->name('api.')->group(function (Router $router) {
        $router->get('{player}', 'Show')->name('show');
    });
 
-   $router->namespace('User')->prefix('user')->name('user.')->middleware('key:3')->group(function (Router $router) {
-       $router->post('verify', 'Verify')->name('verify');
+   $router->namespace('User')->prefix('user')->name('user.')->group(function (Router $router) {
+       $router->post('veraify', 'Verify')->name('verify')->middleware('key:3');
    });
 });
