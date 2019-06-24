@@ -20,7 +20,7 @@ class User extends Authenticatable
     /**
      * @return HasOne
      */
-    public function players(): HasOne
+    public function player(): HasOne
     {
         return $this->hasOne(Player::class);
     }

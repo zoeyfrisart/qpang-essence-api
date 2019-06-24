@@ -30,6 +30,8 @@ $router->namespace('Api')->name('api.')->group(function (Router $router) {
     });
 
     $router->namespace('User')->prefix('user')->name('user.')->group(function (Router $router) {
+        $router->get('/', 'Show')->middleware('auth:api');
+
         $router->post('verify', 'Verify')->name('verify')->middleware('key:3');
         $router->post('register', 'Register')->name('register')->middleware('throttle:10,1');
     });

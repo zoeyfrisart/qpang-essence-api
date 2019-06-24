@@ -23,6 +23,7 @@ class UserResource extends JsonResource
         return [
             'name'       => $this->resource->name,
             'email'      => $this->resource->email,
+            'player'     => new PlayerResource($this->resource->player),
             'created_at' => $this->resource->created_at,
             'updated_at' => $this->resource->updated_at,
         ];
