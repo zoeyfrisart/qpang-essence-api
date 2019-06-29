@@ -17,5 +17,6 @@ class DatabaseSeeder extends Seeder
         $this->call(ShopSeeder::class);
         $this->call(ChannelSeeder::class);
         $this->call(MapSeeder::class);
+        $this->call(LevelSeeder::class);
     }
 }
