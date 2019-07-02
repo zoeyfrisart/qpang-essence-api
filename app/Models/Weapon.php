@@ -10,6 +10,6 @@ class Weapon extends Model
      * @var array
      */
     protected $fillable = [
-        'item_id', 'code_name', 'damage',
+        'item_id', 'code_name', 'damage', 'effect_id', 'chance', 'duration',
     ];
 }
