@@ -25,6 +25,7 @@ class RegisterRequest extends FormRequest
     {
         return [
             'name'      => ['required', 'string', 'min:4', 'max:16', 'unique:users,name'],
+            'nickname'  => ['required', 'string', 'min:4', 'max:16', 'unique:players,name'],
             'password'  => ['required', 'string', 'min:4', 'max:16', 'confirmed'],
             'email'     => ['required', 'email', 'max:191', 'unique:users,email'],
             'recaptcha' => ['required', 'string'],

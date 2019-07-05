@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Events\PlayerCreated;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -12,7 +13,11 @@ class Player extends Model
      * @var array
      */
     protected $fillable = [
-        'rank', 'prestige', 'level', 'don', 'cash', 'coins', 'experience', 'playtime',
+        'name', 'rank', 'prestige', 'level', 'don', 'cash', 'coins', 'experience', 'playtime',
+    ];
+
+    protected $dispatchesEvents = [
+        'created' => PlayerCreated::class,
     ];
 
     /**

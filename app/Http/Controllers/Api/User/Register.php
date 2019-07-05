@@ -10,7 +10,6 @@ use Illuminate\Contracts\Routing\ResponseFactory;
 use Illuminate\Hashing\HashManager;
 use Illuminate\Http\Response;
 use Illuminate\Support\Arr;
-use Illuminate\Support\Str;
 use ReCaptcha\ReCaptcha;
 
 class Register
@@ -59,7 +58,15 @@ class Register
         }
 
         Arr::set($validated, 'password', $this->hashManager->make(Arr::get($validated, 'password')));
+
+        /** @var User $user */
         $user = User::query()->create($validated);
+
+        $user->player()->create([
+            'name' => Arr::get($validated, 'nickname'),
+            /** Hardcoded for now.. :( */
+            'don'  => 20000,
+        ]);
 
         return new UserResource($user);
     }
