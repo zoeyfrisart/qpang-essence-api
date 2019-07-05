@@ -44,6 +44,11 @@ class Verify
         $user = User::query()->where('name', '=', Arr::get($validated, 'name', null))->first();
 
         if ($user !== null) {
+
+            if (! $user->whitelisted) {
+                return $this->responseFactory->noContent(401);
+            }
+
             $success = $this->hashManager->check(Arr::get($validated, 'password', null), $user->password);
 
             if ($success) {
