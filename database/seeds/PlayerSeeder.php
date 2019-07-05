@@ -27,11 +27,5 @@ class PlayerSeeder extends Seeder
             'cash'              => 100000,
             'coins'             => 25000,
         ]);
-
-        $characterIds = [333, 343, 578, 579, 850, 851];
-
-        foreach ($characterIds as $characterId) {
-            PlayerEquipment::query()->create(['player_id' => $player->getKey(), 'character_id' => $characterId]);
-        }
     }
 }
