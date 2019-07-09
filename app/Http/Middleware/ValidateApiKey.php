@@ -36,6 +36,7 @@ class ValidateApiKey
     {
         /** @var string|null $token */
         $token = $request->header('X-Api-Key');
+
         if ($token !== null) {
             /** @var ApiKey|null $apiKey */
             $apiKey = ApiKey::query()->where('key', '=', $token)->first();
@@ -45,6 +46,7 @@ class ValidateApiKey
                 }
             }
         }
+
         return $this->responseFactory->noContent(401);
     }
 }
