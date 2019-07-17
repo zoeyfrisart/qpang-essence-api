@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 use Laravel\Passport\HasApiTokens;
 
 class User extends Authenticatable
@@ -23,6 +24,14 @@ class User extends Authenticatable
     public function player(): HasOne
     {
         return $this->hasOne(Player::class);
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function roles(): BelongsToMany
+    {
+        return $this->belongsToMany(Role::class);
     }
 
     /**
