@@ -1,9 +1,3 @@
-# Essence site
-
-This is the source code for the API used by the https://qpang.io website. In here, you can find the database structure, which is also being used for the game.
-
-It's not completely finished, but we're trying to sync the `master` branch with the webserver.
-
 ## Installation
 
 Make sure you have PHP ^7, composer & MySQL installed.
