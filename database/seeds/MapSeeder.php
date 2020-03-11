@@ -59,6 +59,11 @@ class MapSeeder extends Seeder
         ]);
 
         Map::query()->create([
+            'map_id' => Map::BRIDGE,
+            'name'   => 'Bridge',
+        ]);
+
+        Map::query()->create([
             'map_id' => Map::CASTAWAY,
             'name'   => 'Castaway',
         ]);
